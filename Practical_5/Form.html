@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Maintenance Form</title>
+</head>
+<body>
+    <form action="/submit-form" method="post">
+</form>
+<form action="/submit-form" method="post"></form>
+<h1>Hostel Maintenance Form</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="studentid">Student ID:</label>
+    <input type="text" id="studentid" name="studentid" required><br></br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="contactnumber">Contact Number:</label>
+    <input type="tel" id="contactnumber"name="contactnumber" required><br><br>
+
+    <p><B>Hostel Details</B></p>
+    <label for="blockname">Block Name:</label>
+    <select id="blockname" name="blockname">
+        <option value="HA">Block HA</option>
+        <option value="HB">Block HB</option>
+        <option value="HC">Block HC</option>
+        <option value="HD">Block HD</option>
+        <option value="HE">Block HE</option>
+        <option value="HF">Block HF</option>
+
+    <label for="roomnumber">Room Number:</label>
+    <input type="text" id="roomnumber" name="roomnumber" required><br><br>
+
+    <label for="floornumber">Floor Number:</label>
+    <input type="number" id="floornumber" name="floornumber" min="0" max="3" required><br><br>
+
+    <p><B>Issue Details</B></p>
+    <label for="issuetype">Type of Issue:</label>
+    <select id="issuetype" name="issuetype">
+        <option value="plumbing">Plumbing</option>
+        <option value="electrical">Electrical</option>
+        <option value="furniture">Furniture</option>
+        <option value="cleaning">Cleaning</option>
+        <option value="Infrastrucure">Infrastructure</option>
+        <option value="wifi">WIFI</option>
+        <option value="other">Other</option>
+    </select><br><br>
+    <p><B>Urgency Level:</B></p>
+    <input type="radio".id="low" name="urgency" value="low">
+    <label for="low">Low</label>
+    <input type="radio" id="medium" name="urgency" value="medium">
+    <label for="medium">Medium</label>
+    <input type="radio" id="high" name="urgency" value="high">
+    <label for="high">High</label>
+    <input type="radio" id="high" name="urgency" value="high>
+    <label for="emergency">Emergency</label><br><br>
+
+    <label for="issue">Issue Description:(Please describe the issue in detail)</label><br>
+    <textarea id="issue" name="issue" rows="5" cols="50" required></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+
+
+</body>
+</html>
