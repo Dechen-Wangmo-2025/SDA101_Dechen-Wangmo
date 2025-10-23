@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #4d4545;
+    }
+
+    .highlight {
+      color: aquamarine;
+      font-weight: bold;
+    }
+
+    .box {
+      padding: 10px;
+      border: 1px solid #52c57e9e;
+      margin-top: 10px;
+      fill: #5656569e;
+    }
+
+    button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #79ebde;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">My DOM Playground</h1>
+
+  <p class="content">This is paragraph one.</p>
+  <p class="content">This is paragraph two.</p>
+
+  <div id="container" class="box">
+    <h3>Container Section</h3>
+    <p>This is inside a container.</p>
+  </div>
+
+  <button id="changeTextBtn">Change Text</button>
+  <button id="addElementBtn">Add New Element</button>
+  <button id="removeElementBtn">Remove Last Element</button>
+
+  <script>
+    // Get references to elements
+    const title = document.getElementById("main-title");
+    const paragraphs = document.getElementsByClassName("content");
+    const container = document.getElementById("container");
+
+    // Log DOM relationships
+    console.log("Parent of container:", container.parentElement);
+    console.log("Children of container:", container.children);
+    console.log("First child element of container:", container.firstElementChild);
+
+    // Modify text and styles on page load
+    title.textContent = "Welcome to the DOM Practice!";
+    paragraphs[0].style.color = "Aqua"; // first paragraph becomes green
+
+    // Button 1: Change title text
+    document.getElementById("changeTextBtn").addEventListener("click", () => {
+      title.textContent = "Text Changed via Button Click!";
+    });
+
+    // Button 2: Add new paragraph
+    document.getElementById("addElementBtn").addEventListener("click", () => {
+      const newPara = document.createElement("p");
+      newPara.textContent = "New paragraph added!";
+      newPara.classList.add("highlight"); // gives aquamarine color
+      container.appendChild(newPara);
+    });
+
+    // Button 3: Remove last paragraph in container
+    document.getElementById("removeElementBtn").addEventListener("click", () => {
+      const lastChild = container.lastElementChild;
+      if (lastChild && lastChild.tagName === "P") {
+        container.removeChild(lastChild);
+      }
+    });
+  </script>
+</body>
+</html>
