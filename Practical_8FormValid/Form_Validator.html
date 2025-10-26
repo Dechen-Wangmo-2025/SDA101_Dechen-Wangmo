@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation For Email Users</title>
+  <style>
+    /* ======= Base Styles ======= */
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--bg-color);
+      transition: 0.5s ease;
+    }
+
+    :root {
+      --bg-color: #f5f6fa;
+      --text-color: #333;
+      --card-bg: #fff;
+      --accent: #63e7d1;
+    }
+
+    .container {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(93, 197, 164, 0.737);
+      width: 350px;
+      transition: all 0.3s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      outline: none;
+      font-size: 15px;
+      transition: 0.3s ease;
+      background: transparent;
+      color: var(--text-color);
+    }
+
+    .error {
+      color: #ff0000;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #b37fdbab;
+      transform: translateY(-2px);
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background: var(--accent);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      color: #eccece;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: #a6a4bd;
+    }
+
+  </style>
+</head>
+<body>
+
+  <p class="toggle-btn" onclick="toggleMode()"> </p>
+
+  <div class="container">
+    <h2>Registration Form</h2>
+    <form id="myForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <div class="error" id="nameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <div class="error" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <div class="error" id="passwordError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password">
+        <div class="error" id="confirmError"></div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('myForm');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let valid = true;
+
+      // Clear previous errors
+      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+      // Name validation
+      if (name === '') {
+        document.getElementById('nameError').textContent = 'Name is required.';
+        valid = false;
+      }
+
+      // Email validation
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email.';
+        valid = false;
+      }
+
+      // Password validation
+      if (password.length < 6) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
+        valid = false;
+      }
+
+      // Confirm password
+      if (password !== confirmPassword) {
+        document.getElementById('confirmError').textContent = 'Passwords do not match.';
+        valid = false;
+      }
+
+      if (valid) {
+        alert('Form submitted successfully!');
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
