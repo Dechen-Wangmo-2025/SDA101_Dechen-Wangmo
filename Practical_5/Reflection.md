@@ -1,0 +1,10 @@
+# Introduction
+While creating the Hostel Maintenance Form, it helped me strengthen my understanding of HTML structure and form elements. Through this task, I learned how to collect user inputs in an organized way using labels, text fields, dropdown menus, radio buttons, and text areas. It made me realize how crucial forms are for interaction between users and a system, especially in real-world scenarios such as maintenance reporting.
+
+I began by setting up a basic HTML layout and then added form elements to capture important details such as the student’s name, ID, email, and contact number. I also learned how to use the <select> element to create dropdown menus for block names and issue types. Adding radio buttons for urgency levels taught me how to group related options under the same name attribute so that only one can be selected at a time. Moreover, I understood the importance of attributes like required, type, and name for validation and proper data submission.
+
+- Challenges and Resolution
+One challenge I faced was ensuring the form was properly structured and validated. Initially, I mistakenly left some unclosed tags and misused attributes, which caused the form to display incorrectly. By debugging and reviewing the HTML syntax, I realized how important indentation and tag hierarchy are for readable and error-free code. Another issue I encountered was aligning and grouping input fields effectively, which I plan to improve further using CSS styling in future versions.
+
+# Conclusion
+Overall, building this form helped me grasp how front-end forms act as a bridge between users and backend systems. It gave me confidence in using different HTML input types and strengthened my attention to clean, valid code. Going forward, I aim to enhance this form by adding CSS for better visual presentation and JavaScript for dynamic form validation.
